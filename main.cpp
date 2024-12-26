@@ -14,15 +14,19 @@ void regMenu(learner &l1, learner &l2, instructor &i1) {
     ++serial;
     int i, pos;
 
-    cout << "\n1. Register as an Instructor." << endl;
+    cout << "\n--------------------------------------";
+    cout << "\n************ REGISTRATION ************\n";
+    cout << "--------------------------------------\n";
+    cout << "1. Register as an Instructor." << endl;
     cout << "2. Register as a Learner." << endl;
-    cout << "3. Exit." << endl;
+    cout << "3. Return to HOMEPAGE." << endl;
+    cout << "4. Exit." << endl;
     int option;
     cout << "Choose an option: ";
     cin >> option;
+
     switch (option) {
     case 1:
-        // cout << "Will be updated later!" << endl;
         i1.registration();
         break;
     case 2:
@@ -33,12 +37,15 @@ void regMenu(learner &l1, learner &l2, instructor &i1) {
              << endl;
         break;
     case 3:
+        return;
+    case 4:
         cout << "\nBest of Luck! Goodbye..." << endl;
         exit(0);
         break;
     }
     file.close();
 }
+
 void logMenu(learner &l1, learner &l2, instructor &i1) {
 
     fstream file;
@@ -49,9 +56,13 @@ void logMenu(learner &l1, learner &l2, instructor &i1) {
     ++serial;
     int i, pos;
 
-    cout << "\n1. Login as an Instructor." << endl;
+    cout << "\n--------------------------------";
+    cout << "\n************ LOG IN ************\n";
+    cout << "--------------------------------\n";
+    cout << "1. Login as an Instructor." << endl;
     cout << "2. Login as a Learner." << endl;
-    cout << "3. Exit." << endl;
+    cout << "3. Return to HOMEPAGE." << endl;
+    cout << "4. Exit." << endl;
 
     int option;
     cout << "Choose an option: ";
@@ -69,11 +80,11 @@ void logMenu(learner &l1, learner &l2, instructor &i1) {
         l1 == l2;
         cout << endl;
         break;
-
     case 3:
+        return;
+    case 4:
         cout << "\nBest of Luck! Goodbye..." << endl;
         exit(0);
-        break;
     default:
         cout << "Invalid Option! Please try again..." << endl;
         return;
@@ -101,7 +112,7 @@ void MainMenu(learner &l1, learner &l2, instructor &i1) {
         logMenu(l1, l2, i1);
         break;
     case 3:
-        cout << "\nUnavailable now!" << endl;
+        i1.showCourses();
         break;
     case 4:
         cout << "\nBest of Luck! Goodbye..." << endl;
@@ -117,8 +128,7 @@ int main() {
     learner l1, l2;
     instructor i1;
     fstream file;
-    // file.open("Learners.dat", ios::app | ios::in | ios::out |
-    // ios::binary);
+
     while (true) {
         MainMenu(l1, l2, i1);
     }

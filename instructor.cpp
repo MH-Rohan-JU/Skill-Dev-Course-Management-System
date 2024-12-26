@@ -6,12 +6,13 @@
 using namespace std;
 
 void instructor::instructorMenu() {
+
     while (true) {
         cout << "\n1. Add a course." << endl;
         cout << "2. Delete a course." << endl;
         cout << "3. See all courses." << endl;
         cout << "4. See who enrolled." << endl;
-        cout << "5. Return to HOMEPAGE." << endl;
+        cout << "5. Log out." << endl;
         cout << "Select an option: ";
         int option;
         cin >> option;
@@ -22,8 +23,14 @@ void instructor::instructorMenu() {
             break;
         case 2:
             instructor::deleteCourses();
-            cout << "The selected course is Deleted!";
+            cout << "\nThe selected course is Deleted!\n";
             instructor::copyFile();
+            break;
+        case 3:
+            instructor::showCourses();
+            break;
+        case 4:
+            cout << "Under Construction :3" << endl;
             break;
         case 5:
             return;
@@ -35,12 +42,12 @@ void instructor::registration() {
     std::srand(std::time(0));
     int random_number = 1000 + (std::rand() % (9000));
     cin.ignore();
-    cout << "Enter your name: ";
+    cout << "\nEnter your name: ";
     getline(cin, instructorName);
     cout << "\nWe will send you an OTP.\nPlease Provide your E-mail/Phone no: ";
     cin >> contact;
-    cout << "Your OTP is: " << random_number << endl;
-    cout << "\nPreserve this OTP for login in this session." << endl;
+    cout << "\nYour OTP is: " << random_number << endl;
+    cout << "Preserve this OTP for login in this session." << endl;
     um[random_number] = instructorName;
     instructorMenu();
 }
