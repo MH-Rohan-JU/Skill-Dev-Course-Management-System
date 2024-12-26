@@ -4,6 +4,7 @@
 using namespace std;
 
 void learner::getID(int serial) { ID = serial; }
+
 void learner::registration(int serial) {
     cout << "\n[N.B. Username must be a single word. You may use your "
             "nickname.\n";
@@ -36,7 +37,7 @@ void learner::operator==(learner l2) const {
     if (!strcmp(username, l2.username)) {
         if (!strcmp(password, l2.password)) {
             cout << "\nLogin Succeeded!" << endl;
-            cout<<"Welcome "<<username<<" to our platform :)"<<endl;
+            cout << "Welcome " << username << " to our platform :)" << endl;
         } else {
             cout << "\nIncorrect Password!" << endl;
         }

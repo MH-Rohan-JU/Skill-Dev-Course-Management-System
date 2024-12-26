@@ -1,9 +1,10 @@
+#include "instructor.h"
 #include "learner.h"
-#include <bits/stdc++.h>
+#include <fstream>
 #include <iostream>
 using namespace std;
 
-void regMenu(learner &l1, learner &l2) {
+void regMenu(learner &l1, learner &l2, instructor &i1) {
 
     fstream file;
     file.open("Learners.dat", ios::app | ios::in | ios::out | ios::binary);
@@ -21,7 +22,8 @@ void regMenu(learner &l1, learner &l2) {
     cin >> option;
     switch (option) {
     case 1:
-        cout << "Will be updated later!" << endl;
+        // cout << "Will be updated later!" << endl;
+        i1.registration();
         break;
     case 2:
         l1.registration(serial);
@@ -37,7 +39,7 @@ void regMenu(learner &l1, learner &l2) {
     }
     file.close();
 }
-void logMenu(learner &l1, learner &l2) {
+void logMenu(learner &l1, learner &l2, instructor &i1) {
 
     fstream file;
     file.open("Learners.dat", ios::app | ios::in | ios::out | ios::binary);
@@ -57,6 +59,7 @@ void logMenu(learner &l1, learner &l2) {
 
     switch (option) {
     case 1:
+        i1.login();
         break;
     case 2:
         i = l1.login();
@@ -78,7 +81,7 @@ void logMenu(learner &l1, learner &l2) {
     file.close();
 }
 
-void MainMenu(learner &l1, learner &l2) {
+void MainMenu(learner &l1, learner &l2, instructor &i1) {
     cout << "####################################" << endl;
     cout << "#              HOMEPAGE            #" << endl;
     cout << "####################################" << endl;
@@ -92,10 +95,10 @@ void MainMenu(learner &l1, learner &l2) {
 
     switch (option) {
     case 1:
-        regMenu(l1, l2);
+        regMenu(l1, l2, i1);
         break;
     case 2:
-        logMenu(l1, l2);
+        logMenu(l1, l2, i1);
         break;
     case 3:
         cout << "\nUnavailable now!" << endl;
@@ -112,11 +115,12 @@ void MainMenu(learner &l1, learner &l2) {
 
 int main() {
     learner l1, l2;
+    instructor i1;
     fstream file;
     // file.open("Learners.dat", ios::app | ios::in | ios::out |
     // ios::binary);
     while (true) {
-        MainMenu(l1, l2);
+        MainMenu(l1, l2, i1);
     }
     return 0;
 }

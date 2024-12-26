@@ -14,4 +14,5 @@ class learner {
     void operator==(learner) const;
     void showData() const;
 };
+
 #endif
