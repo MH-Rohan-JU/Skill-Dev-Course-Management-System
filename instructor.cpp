@@ -23,6 +23,7 @@ void instructor::instructorMenu() {
         case 2:
             instructor::deleteCourses();
             cout << "The selected course is Deleted!";
+            instructor::copyFile();
             break;
         case 5:
             return;

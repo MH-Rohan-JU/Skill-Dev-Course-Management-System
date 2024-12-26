@@ -24,6 +24,27 @@ void courses::addCourses() {
     }
     course << ',' << s[0] << ',' << s[1] << ',' << s[2];
     tempCourse << ',' << s[0] << ',' << s[1] << ',' << s[2];
+
+    course.close();
+    tempCourse.close();
+}
+
+void courses::copyFile() {
+    ofstream course("courses.txt");
+    ifstream tempCourse("temp.txt", ios::app);
+    bool frstInfo = true;
+    while (!tempCourse.eof()) {
+        getline(tempCourse, s[0], ',');
+        getline(tempCourse, s[1], ',');
+        getline(tempCourse, s[2], ',');
+        if (frstInfo) {
+            course << s[0] << ',' << s[1] << ',' << s[2];
+            frstInfo = false;
+            continue;
+        }
+        course << ',' << s[0] << ',' << s[1] << ',' << s[2];
+        frstInfo = false;
+    }
     course.close();
     tempCourse.close();
 }
@@ -33,8 +54,8 @@ void courses::deleteCourses() {
     cout << "Enter the Course-No. to delete: ";
     cin >> delCourse;
     // cin >> s[0];
-    fstream course("courses.txt", ios::out | ios::in);
-    fstream tempCourse("temp.txt", ios::out | ios::in);
+    ifstream course("courses.txt", ios::app);
+    ofstream tempCourse("temp.txt");
     bool frstInfo = true;
     while (!course.eof()) {
         // course>>s[0]>>s[1]>>s[2];
@@ -52,4 +73,21 @@ void courses::deleteCourses() {
         tempCourse << ',' << s[0] << ',' << s[1] << ',' << s[2];
         frstInfo = false;
     }
+    // course.seekg(0);
+    // tempCourse.seekg(0);
+    // frstInfo = true;
+    // while (!tempCourse.eof()) {
+    //     getline(tempCourse, s[0], ',');
+    //     getline(tempCourse, s[1], ',');
+    //     getline(tempCourse, s[2], ',');
+    //     if (frstInfo) {
+    //         course << s[0] << ',' << s[1] << ',' << s[2];
+    //         frstInfo = false;
+    //         continue;
+    //     }
+    //     course << ',' << s[0] << ',' << s[1] << ',' << s[2];
+    //     frstInfo = false;
+    // }
+    course.close();
+    tempCourse.close();
 }
