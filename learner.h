@@ -13,6 +13,7 @@ class learner {
     int login();
     void operator==(learner) const;
     void showData() const;
+    void learnersMenu() const;
 };
 
 #endif

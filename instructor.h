@@ -1,10 +1,11 @@
 #ifndef INSTRUCTOR_H
 #define INSTRUCTOR_H
+#include "courses.h"
 #include <string>
 #include <unordered_map>
 using namespace std;
 
-class instructor {
+class instructor : public courses {
   private:
     string instructorName;
     string contact;
@@ -15,10 +16,11 @@ class instructor {
     void registration();
     void login();
     void addToFile();
+    void seeWhoEnrolled();
+    void instructorMenu();
     // void addCourses();
     // void showCourses();
     // void deleteCourses();
-    // void seeWhoEnrolled();
 };
 
 #endif
