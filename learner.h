@@ -17,6 +17,7 @@ class learner {
     void showData() const;
     void learnersMenu();
     void enroll();
+    void rateUs();
 };
 
 #endif

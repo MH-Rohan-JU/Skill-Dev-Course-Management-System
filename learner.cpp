@@ -8,6 +8,19 @@ using namespace std;
 
 void learner::getID(int serial) { ID = serial; }
 
+void learner::rateUs() {
+    double rate;
+    cout << "\nRate something out of 5: ";
+    cin >> rate;
+    if (rate < 0 || rate > 5) {
+        cout << "I\nnvalid rating!!" << endl;
+        return;
+    }
+    ofstream rateFile("ratings.txt", ios::app);
+    rateFile << ' ' << username << ' ' << rate;
+    cout << "\nThanks for your rating ;)" << endl;
+}
+
 void learner::enroll() {
     ofstream enrollFile("enrolled.txt", ios::app);
     ifstream courseFile("courses.txt", ios::app);
@@ -25,7 +38,7 @@ void learner::enroll() {
         }
     }
     if (found) {
-        enrollFile << courseNo << ' ' << username << ' ';
+        enrollFile << ' ' << courseNo << ' ' << username;
         cout << "\nEnrolled Successfully!" << endl;
     } else {
         cout << "\nCourse not found!!" << endl;
@@ -38,7 +51,7 @@ void learner::learnersMenu() {
     while (true) {
         cout << "\n1. See the courses.\n";
         cout << "2. Enroll a course.\n";
-        cout << "3. Rate a course.\n";
+        cout << "3. Rate Us.\n";
         cout << "4. Log out.\n";
         cout << "Select an option: ";
         int option;
@@ -51,9 +64,13 @@ void learner::learnersMenu() {
         case 2:
             enroll();
             break;
+        case 3:
+            rateUs();
+            break;
         case 5:
             return;
         default:
+            cout << "\nInvalid Option!" << endl;
             return;
         }
     }

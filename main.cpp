@@ -1,5 +1,7 @@
+#include "abstract.h"
 #include "instructor.h"
 #include "learner.h"
+#include "rating.h"
 #include <fstream>
 #include <iostream>
 using namespace std;
@@ -94,14 +96,15 @@ void logMenu(learner &l1, learner &l2, instructor &i1) {
     file.close();
 }
 
-void MainMenu(learner &l1, learner &l2, instructor &i1) {
+void MainMenu(learner &l1, learner &l2, instructor &i1, abstruct *&abst) {
     cout << "####################################" << endl;
     cout << "#              HOMEPAGE            #" << endl;
     cout << "####################################" << endl;
     cout << "1. Register/Sign up" << endl;
     cout << "2. Login / Sign in" << endl;
     cout << "3. View Courses as a Guest" << endl;
-    cout << "4. Exit" << endl;
+    cout << "4. See who rated us" << endl;
+    cout << "5. Exit" << endl;
     int option;
     cout << "Choose an option: ";
     cin >> option;
@@ -117,6 +120,9 @@ void MainMenu(learner &l1, learner &l2, instructor &i1) {
         i1.showCourses();
         break;
     case 4:
+        abst->showRatings();
+        break;
+    case 5:
         cout << "\nBest of Luck! Goodbye..." << endl;
         exit(0);
         break;
@@ -129,10 +135,11 @@ void MainMenu(learner &l1, learner &l2, instructor &i1) {
 int main() {
     learner l1, l2;
     instructor i1;
+    abstruct *abst = new rating();
     fstream file;
 
     while (true) {
-        MainMenu(l1, l2, i1);
+        MainMenu(l1, l2, i1, abst);
     }
 
     return 0;
