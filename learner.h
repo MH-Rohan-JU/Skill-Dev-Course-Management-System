@@ -16,6 +16,7 @@ class learner {
     void operator==(learner); // Operator Overloading
     void showData() const;
     void learnersMenu();
+    void enroll();
 };
 
 #endif

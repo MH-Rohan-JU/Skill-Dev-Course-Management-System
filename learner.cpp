@@ -1,9 +1,38 @@
 #include "learner.h"
+#include <fstream>
+#include <ios>
 #include <iostream>
 #include <string.h>
+#include <string>
 using namespace std;
 
 void learner::getID(int serial) { ID = serial; }
+
+void learner::enroll() {
+    ofstream enrollFile("enrolled.txt", ios::app);
+    ifstream courseFile("courses.txt", ios::app);
+    int courseNo;
+    cout << "\nEnter the Course-No. you want to enroll: ";
+    cin >> courseNo;
+    string cn = to_string(courseNo);
+    string cnf;
+    bool found = false;
+    while (!courseFile.eof()) {
+        getline(courseFile, cnf, ',');
+        if (cnf == cn) {
+            found = true;
+            break;
+        }
+    }
+    if (found) {
+        enrollFile << courseNo << username;
+        cout << "\nEnrolled Successfully!" << endl;
+    } else {
+        cout << "\nCourse not found!!" << endl;
+    }
+    enrollFile.close();
+    courseFile.close();
+}
 
 void learner::learnersMenu() {
     while (true) {
@@ -20,7 +49,8 @@ void learner::learnersMenu() {
             ins.showCourses();
             break;
         case 2:
-
+            enroll();
+            break;
         case 5:
             return;
         default:
