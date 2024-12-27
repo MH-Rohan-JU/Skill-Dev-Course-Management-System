@@ -8,7 +8,7 @@ You can simply download the zip file of the repository from above or go to termi
 git clone https://github.com/MH-Rohan-JU/Skill-Dev-Course-Management-System
 ```
 ## Compile and Run
-Open the clonned project's directory in your Text Editor and open the terminal and run the following command to compile:
+Open the clonned project's directory in your Text Editor and open the terminal. Then use the following command to compile:
 ```bash
 g++ *.cpp
 ```
