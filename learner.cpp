@@ -25,7 +25,7 @@ void learner::enroll() {
         }
     }
     if (found) {
-        enrollFile << courseNo << username;
+        enrollFile << courseNo << ' ' << username << ' ';
         cout << "\nEnrolled Successfully!" << endl;
     } else {
         cout << "\nCourse not found!!" << endl;

@@ -1,9 +1,26 @@
 #include "instructor.h"
 #include <cstdlib>
 #include <ctime>
+#include <fstream>
+#include <iomanip>
 #include <iostream>
 #include <string>
 using namespace std;
+
+void instructor::seeWhoEnrolled() {
+    ifstream enrollFIle("enrolled.txt", ios::app);
+    cout << endl;
+    cout << "Course-No." << setw(10) << "Learners" << setw(20) << '\n';
+    cout << string(20, '-') << endl;
+    int id;
+    string name;
+    while (!enrollFIle.eof()) {
+        enrollFIle >> id >> name;
+        cout << id << setw(18);
+        cout << name << setw(20) << '\n';
+    }
+    enrollFIle.close();
+}
 
 void instructor::instructorMenu() {
 
@@ -30,7 +47,7 @@ void instructor::instructorMenu() {
             instructor::showCourses();
             break;
         case 4:
-            cout << "Under Construction :3" << endl;
+            instructor::seeWhoEnrolled();
             break;
         case 5:
             return;
