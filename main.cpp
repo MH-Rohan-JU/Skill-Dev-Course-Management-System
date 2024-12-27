@@ -35,6 +35,8 @@ void regMenu(learner &l1, learner &l2, instructor &i1) {
         cout << "\nRegistration is successful.\nYour ID no. is: " << serial
              << ".\nPreserve this ID number for future logins.\n"
              << endl;
+
+        l1.learnersMenu();
         break;
     case 3:
         return;

@@ -9,13 +9,13 @@ class learner {
     char password[20];
 
   public:
+    instructor ins; // Aggregation
     void getID(int serial);
     void registration(int serial);
     int login();
-    void operator==(learner);
+    void operator==(learner); // Operator Overloading
     void showData() const;
     void learnersMenu();
-    instructor ins;
 };
 
 #endif

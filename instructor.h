@@ -5,6 +5,7 @@
 #include <unordered_map>
 using namespace std;
 
+// Inheritance
 class instructor : public courses {
   private:
     string instructorName;
@@ -12,15 +13,12 @@ class instructor : public courses {
     int insPassword;
 
   public:
-    unordered_map<int, string> um;
+    unordered_map<int, string> um; // Standard Template Library (STL)
     void registration();
     void login();
     void addToFile();
     void seeWhoEnrolled();
     void instructorMenu();
-    // void addCourses();
-    // void showCourses();
-    // void deleteCourses();
 };
 
 #endif

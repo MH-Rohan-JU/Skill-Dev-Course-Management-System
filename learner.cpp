@@ -38,7 +38,7 @@ void learner::registration(int serial) {
     cin >> password;
 
     getID(serial);
-    learnersMenu();
+    // learnersMenu();
 }
 
 int learner::login() {
