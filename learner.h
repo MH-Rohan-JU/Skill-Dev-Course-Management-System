@@ -1,6 +1,7 @@
 #ifndef LEARNER_H
 #define LEARNER_H
 
+#include "instructor.h"
 class learner {
   protected:
     int ID;
@@ -11,9 +12,10 @@ class learner {
     void getID(int serial);
     void registration(int serial);
     int login();
-    void operator==(learner) const;
+    void operator==(learner);
     void showData() const;
-    void learnersMenu() const;
+    void learnersMenu();
+    instructor ins;
 };
 
 #endif
