@@ -18,6 +18,9 @@ void learner::learnersMenu() {
         switch (option) {
         case 1:
             ins.showCourses();
+            break;
+        case 2:
+
         case 5:
             return;
         default:
@@ -38,7 +41,6 @@ void learner::registration(int serial) {
     cin >> password;
 
     getID(serial);
-    // learnersMenu();
 }
 
 int learner::login() {
