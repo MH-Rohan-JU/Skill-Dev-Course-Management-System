@@ -7,7 +7,7 @@
 using namespace std;
 
 void courses::addCourses() {
-    // cin.ignore();
+
     cout << "Set the Course-Serial No. [1,2,3...]: ";
     cin >> s[0];
     cin.ignore();
@@ -16,18 +16,14 @@ void courses::addCourses() {
     cout << "Set the Course-Fee: ";
     cin >> s[2];
     fstream course("courses.txt", ios::app);
-    // fstream tempCourse("temp.txt", ios::app);
     course.seekg(0, ios::end);
     if ((course.tellg() == 0)) {
         course << s[0] << ',' << s[1] << ',' << s[2] << " BDT";
-        // tempCourse << s[0] << ',' << s[1] << ',' << s[2]<<" BDT";
         return;
     }
     course << ',' << s[0] << ',' << s[1] << ',' << s[2] << " BDT";
-    // tempCourse << ',' << s[0] << ',' << s[1] << ',' << s[2]<<"";
 
     course.close();
-    // tempCourse.close();
 }
 
 void courses::copyFile() {
@@ -54,12 +50,13 @@ void courses::deleteCourses() {
     string delCourse;
     cout << "Enter the Course-No. to delete: ";
     cin >> delCourse;
-    // cin >> s[0];
+
     ifstream course("courses.txt", ios::app);
     ofstream tempCourse("temp.txt");
+
     bool frstInfo = true;
     while (!course.eof()) {
-        // course>>s[0]>>s[1]>>s[2];
+
         getline(course, s[0], ',');
         getline(course, s[1], ',');
         getline(course, s[2], ',');

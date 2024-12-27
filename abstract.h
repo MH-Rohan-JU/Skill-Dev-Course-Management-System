@@ -6,8 +6,8 @@ class abstruct {
   public:
     double rate;
     std::string name;
-    abstruct() : rate(0) {} // Default Constructor
-    virtual void showRatings() = 0;
+    abstruct() : rate(0) {}         // Default Constructor
+    virtual void showRatings() = 0; // Pure Virtual Function
 };
 
 #endif

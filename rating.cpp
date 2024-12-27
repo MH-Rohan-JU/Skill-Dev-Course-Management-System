@@ -7,6 +7,7 @@
 using namespace std;
 
 void rating::showRatings() {
+
     ifstream rateFile("ratings.txt", ios::app);
 
     cout << endl;
@@ -14,6 +15,7 @@ void rating::showRatings() {
     cout << "Username" << setw(18);
     cout << endl;
     cout << string(26, '.') << endl;
+
     setiosflags(ios::right);
     while (!rateFile.eof()) {
         rateFile >> name >> rate;
@@ -22,5 +24,6 @@ void rating::showRatings() {
         cout << '\n';
     }
     cout << endl;
+
     rateFile.close();
 }

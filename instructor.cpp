@@ -64,7 +64,14 @@ void instructor::registration() {
     cout << "\nWe will send you an OTP.\nPlease Provide your E-mail/Phone no: ";
     cin >> contact;
     cout << "\nYour OTP is: " << random_number << endl;
+    cout << "Confirm OTP: ";
+    cin >> insPassword;
+    if (insPassword != random_number) {
+        cout << "Incorrect OTP!" << endl;
+        return;
+    }
     cout << "Preserve this OTP for login in this session." << endl;
+    cout << "\nWelcome " << instructorName << " as an Instructor <3" << endl;
     um[random_number] = instructorName;
     instructorMenu();
 }

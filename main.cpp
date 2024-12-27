@@ -16,9 +16,9 @@ void regMenu(learner &l1, learner &l2, instructor &i1) {
     ++serial;
     int i, pos;
 
-    cout << "\n--------------------------------------";
-    cout << "\n************ REGISTRATION ************\n";
-    cout << "--------------------------------------\n";
+    cout << "\n------------------------------------";
+    cout << "\n*********** REGISTRATION ***********\n";
+    cout << "------------------------------------\n";
     cout << "1. Register as an Instructor." << endl;
     cout << "2. Register as a Learner." << endl;
     cout << "3. Return to HOMEPAGE." << endl;
@@ -135,8 +135,8 @@ void MainMenu(learner &l1, learner &l2, instructor &i1, abstruct *&abst) {
 int main() {
     learner l1, l2;
     instructor i1;
-    abstruct *abst = new rating();
-    fstream file;
+    abstruct *abst = new rating(); // Dynamic Binding
+    fstream file;                  // File System
 
     while (true) {
         MainMenu(l1, l2, i1, abst);

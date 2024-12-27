@@ -2,6 +2,7 @@
 #define LEARNER_H
 
 #include "instructor.h"
+
 class learner {
   protected:
     int ID;

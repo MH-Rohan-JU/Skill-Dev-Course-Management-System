@@ -1,4 +1,5 @@
 #include "learner.h"
+#include <ctime>
 #include <fstream>
 #include <ios>
 #include <iostream>
@@ -12,6 +13,7 @@ void learner::rateUs() {
     double rate;
     cout << "\nRate something out of 5: ";
     cin >> rate;
+    rate *= 1.00;
     if (rate < 0 || rate > 5) {
         cout << "I\nnvalid rating!!" << endl;
         return;
@@ -24,7 +26,16 @@ void learner::rateUs() {
 void learner::enroll() {
     ofstream enrollFile("enrolled.txt", ios::app);
     ifstream courseFile("courses.txt", ios::app);
-    int courseNo;
+    int courseNo, checkOTP;
+    std::srand(std::time(0));
+    int random_number = 1000 + (std::rand() % (9000));
+    cout << "\nYour OTP: " << random_number;
+    cout << "\nConfirm OTP: ";
+    cin >> checkOTP;
+    if (random_number != checkOTP) {
+        cout << "\nIncorrect OTP!" << endl;
+        return;
+    }
     cout << "\nEnter the Course-No. you want to enroll: ";
     cin >> courseNo;
     string cn = to_string(courseNo);
