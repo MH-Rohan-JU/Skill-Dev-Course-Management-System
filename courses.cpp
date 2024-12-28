@@ -61,6 +61,7 @@ void courses::deleteCourses() {
         getline(course, s[1], ',');
         getline(course, s[2], ',');
         if (s[0] == delCourse) {
+            s[0] = "", s[1] = "", s[2] = "";
             continue;
         }
         if (frstInfo) {
