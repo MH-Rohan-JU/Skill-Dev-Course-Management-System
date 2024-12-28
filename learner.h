@@ -4,7 +4,7 @@
 #include "instructor.h"
 
 class learner {
-  protected:
+  private:
     int ID;
     char username[80];
     char password[20];
